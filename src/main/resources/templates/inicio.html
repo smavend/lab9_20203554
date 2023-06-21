@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <title>Title</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 style="color: white;">Jaja</h1>
+            <h2>Juego de personajes movidizos</h2>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Ingrese el número de personajes:</label>
+                <div class="col-sm-2">
+                    <input type="text" style="background-color: #e4eeff;" id="num" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Ingrese el tamaño de la pista (m):</label>
+                <div class="col-sm-2">
+                    <input type="text" style="background-color: #e4eeff;" id="tam" class="form-control">
+                </div>
+            </div>
+            <div class="container" style="padding-bottom: 5px;">
+                <button type="button" class="btn btn-primary" id="ingresar">
+                    Ingresar personajes
+                </button>
+            </div>
+        </div>
+        <div class="container" id="agregar1">
+            <div class="row row-cols-3 row-cols-lg-3 g-3 g-lg-3" id="agregar">
+            </div>
+        </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#num').on('input', function() {
+                var num = $(this).val();
+                var validCharacters = /^[3-5]{1,1}$/;
+
+                if (!validCharacters.test(num)) {
+                    $(this).val(num.replace(/\D/g, ''));
+                    $(this).val(num.slice(0, -1));
+                }
+            });
+            $('#tam').on('input', function() {
+                var tam = $(this).val();
+                var validCharacters = /^[4-8]{1,1}$/;
+
+                if (!validCharacters.test(tam)) {
+                    $(this).val(tam.replace(/\D/g, ''));
+                    $(this).val(tam.slice(0, -1));
+                }
+            });
+            $("body").on("click", "#ingresar", function () {
+
+                let num = $('#num').val();
+                let tam = $('#tam').val();
+                if(num === '' || tam === ''){
+                    alert("Debe ingresar ambos campos para continuar");
+                }else{
+                    for(let i=0; i< num; i++){
+                        $("#agregar").append('<div class="col"><div class="p-3 card" style="background-color: lightblue;">\n' +
+                            '  <div class="card-body">\n' +
+                            '    <img src="/src/main/resources/static/robot.png"><br>\n' +
+                            '    <div class="row text-center">'+
+                            '    <input style="background-color: lightblue" class="col-2" type="text"> \n'+
+                            '    <input class="col-9" type="text"> \n'+
+                            '</div>'+
+                            '    <button type="button" class="btn btn-success">Seleccionar personaje</button>\n' +
+                            '  </div>\n' +
+                            '</div></div>');
+                    }
+                    $("#agregar1").append('<div class="container" style="padding-top: 5px;">\n' +
+                        '                <button type="button" class="btn btn-primary">\n' +
+                        '                    Iniciar juego\n' +
+                        '                </button>\n' +
+                        '            </div>')
+                }
+            });
+        });
+
+    </script>
+</html>

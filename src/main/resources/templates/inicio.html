@@ -21,7 +21,7 @@
                     <input type="text" style="background-color: #e4eeff;" id="tam" class="form-control">
                 </div>
             </div>
-            <div class="container" style="padding-bottom: 5px;">
+            <div class="container" style="padding-bottom: 10px;">
                 <button type="button" class="btn btn-primary" id="ingresar">
                     Ingresar personajes
                 </button>
@@ -61,24 +61,25 @@
                     alert("Debe ingresar ambos campos para continuar");
                 }else{
                     for(let i=0; i< num; i++){
-                        $("#agregar").append('<div class="col"><div class="p-3 card" style="background-color: lightblue;">\n' +
+                        $("#agregar").append('<div class="col"><div class="p-3 card" style="background-color: #8caad9;" id="card-color">\n' +
                             '  <div class="card-body">\n' +
                             '    <img src="/src/main/resources/static/robot.png"><br>\n' +
                             '    <div class="row text-center">'+
-                            '    <input style="background-color: lightblue" class="col-2" type="text"> \n'+
+                            '    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#8caad9" title="Choose your color"> \n'+
                             '    <input class="col-9" type="text"> \n'+
                             '</div>'+
                             '    <button type="button" class="btn btn-success">Seleccionar personaje</button>\n' +
                             '  </div>\n' +
                             '</div></div>');
                     }
-                    $("#agregar1").append('<div class="container" style="padding-top: 5px;">\n' +
+                    $("#agregar1").append('<div class="container" style="padding-top: 10px;">\n' +
                         '                <button type="button" class="btn btn-primary">\n' +
                         '                    Iniciar juego\n' +
                         '                </button>\n' +
                         '            </div>')
                 }
             });
+
         });
 
     </script>
